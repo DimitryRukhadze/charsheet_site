@@ -25,6 +25,9 @@ class Theme(models.Model):
     wis_mod = models.IntegerField('Модификатор мудрости', default=0)
     cha_mod = models.IntegerField('Модификатор обаяния', default=0)
 
+    def __str__(self):
+        return self.theme_name
+
 
 class Character(models.Model):
     owner = models.ForeignKey(User, verbose_name='Игрок', on_delete=models.SET_NULL, null=True)

@@ -1,9 +1,14 @@
 from django.shortcuts import render
 
-from .models import Race
+from .models import Race, Theme
 
 
 # Create your views here.
 def index(request):
     races = list(Race.objects.all())
-    return render(request, 'index.html', context={'races': races})
+    themes = list(Theme.objects.all())
+    context = {
+        'races': races,
+        'themes': themes
+    }
+    return render(request, 'index.html', context=context)
