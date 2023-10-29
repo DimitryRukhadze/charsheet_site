@@ -16,6 +16,16 @@ class Race(models.Model):
         return self.race_name
 
 
+class Theme(models.Model):
+    theme_name = models.CharField('Тема', max_length=30)
+    str_mod = models.IntegerField('Модификатор силы', default=0)
+    agi_mod = models.IntegerField('Модификатор ловкости', default=0)
+    end_mod = models.IntegerField('Модификатор выносливости', default=0)
+    int_mod = models.IntegerField('Модификатор интеллекта', default=0)
+    wis_mod = models.IntegerField('Модификатор мудрости', default=0)
+    cha_mod = models.IntegerField('Модификатор обаяния', default=0)
+
+
 class Character(models.Model):
     owner = models.ForeignKey(User, verbose_name='Игрок', on_delete=models.SET_NULL, null=True)
     name = models.CharField('Имя', max_length=30)
