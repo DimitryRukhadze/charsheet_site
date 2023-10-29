@@ -3,12 +3,13 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Race(models.Model):
-    str_mod = models.IntegerField(default=0)
-    agi_mod = models.IntegerField(default=0)
-    end_mod = models.IntegerField(default=0)
-    int_mod = models.IntegerField(default=0)
-    wis_mod = models.IntegerField(default=0)
-    cha_mod = models.IntegerField(default=0)
+    str_mod = models.IntegerField('Модификатор силы', default=0)
+    agi_mod = models.IntegerField('Модификатор ловкости', default=0)
+    end_mod = models.IntegerField('Модификатор выносливости', default=0)
+    int_mod = models.IntegerField('Модификатор интеллекта', default=0)
+    wis_mod = models.IntegerField('Модификатор мудрости', default=0)
+    cha_mod = models.IntegerField('Модификатор обаяния', default=0)
+    race_health_points = models.IntegerField('ПЗ расы', default=0)
 
 
 class Character(models.Model):
