@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 class Race(models.Model):
@@ -11,6 +12,7 @@ class Race(models.Model):
 
 
 class Character(models.Model):
+    owner = models.ForeignKey('User', verbose_name='Игрок', on_delete=models.SET_NULL)
     name = models.CharField('Имя', max_length=30)
     race = models.ForeignKey(
         'Race',
