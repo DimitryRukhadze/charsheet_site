@@ -12,6 +12,9 @@ class Race(models.Model):
     cha_mod = models.IntegerField('Модификатор обаяния', default=0)
     race_health_points = models.IntegerField('ПЗ расы', default=0)
 
+    def __str__(self):
+        return self.race_name
+
 
 class Character(models.Model):
     owner = models.ForeignKey(User, verbose_name='Игрок', on_delete=models.SET_NULL, null=True)

@@ -5,6 +5,31 @@
   <title>Тест</title>
 </head>
 <body>
-  <p>Это тест</p>
+  <h1>Лист персонажа</h1>
+  <div name="General_info" class="list_block" style="display: flex; flex-direction: column; max-width: 200px">
+    <input type="text" maxlength="30">
+    <select name="Раса">
+      {% for race in races %}
+        <option>{{race}}</option>
+      {% endfor %}
+    </select>
+    <select name="Тема">
+      {% for theme in themes %}
+        <option>{{theme}}</option>
+      {% endfor %}
+    </select>
+    <p>Здесь будет класс и уровень</p>
+    <p>Здесь будет уровень</p>
+    <div name="life_signs" class="life_block" style="display: flex; flex-direction: row">
+      <p>ПЖ: </p>
+      <input type="text">
+      <p>ПЗ: </p>
+      <input type="text">
+      <p>ПР: </p>
+      <input type="text">
+      <p>Скорость: </p>
+      <input type="text" value="30">
+    </div>
+  </div>
 </body>
 </html>
