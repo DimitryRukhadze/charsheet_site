@@ -1,8 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 
 
 class Race(models.Model):
+    race_name = models.CharField('Раса', max_length=30)
     str_mod = models.IntegerField('Модификатор силы', default=0)
     agi_mod = models.IntegerField('Модификатор ловкости', default=0)
     end_mod = models.IntegerField('Модификатор выносливости', default=0)
@@ -13,13 +14,14 @@ class Race(models.Model):
 
 
 class Character(models.Model):
-    owner = models.ForeignKey('User', verbose_name='Игрок', on_delete=models.SET_NULL)
+    owner = models.ForeignKey(User, verbose_name='Игрок', on_delete=models.SET_NULL, null=True)
     name = models.CharField('Имя', max_length=30)
     race = models.ForeignKey(
         'Race',
         verbose_name='Раса',
         related_name='character',
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
+        null=True
     )
     strength = models.IntegerField('Сила', default=10)
     agility = models.IntegerField('Ловкость', default=10)
