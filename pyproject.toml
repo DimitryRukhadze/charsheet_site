@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 Django = "4.2.6"
 django-mathfilters = "1.0.0"
+djangorestframework = "^3.14.0"
 
 
 [build-system]

@@ -17,6 +17,7 @@ class Race(models.Model):
 
 
 class Theme(models.Model):
+    #PositiveIntegerField
     theme_name = models.CharField('Тема', max_length=30)
     str_mod = models.IntegerField('Модификатор силы', default=0)
     agi_mod = models.IntegerField('Модификатор ловкости', default=0)
