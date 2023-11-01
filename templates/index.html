@@ -8,7 +8,7 @@
   <h1>Лист персонажа</h1>
   <div name="General_info" class="list_block" style="display: flex; flex-direction: column; max-width: 200px">
     <input type="text" maxlength="30">
-    <select name="Раса">
+    <select id='race' name="Раса">
       {% for race in races %}
         <option>{{race}}</option>
       {% endfor %}
@@ -45,5 +45,12 @@
       <p>Обаяние: </p>
       <input type="number" value="10">
   </div>
+  <script>
+    document.querySelector('select[id=race]').addEventListener('change', function() {
+      let race = document.getElementById('race')
+      let race_name = race.value
+      console.log(race_name)
+    });
+  </script>
 </body>
 </html>
