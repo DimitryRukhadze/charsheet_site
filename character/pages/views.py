@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Race, Theme
+from character.models import Race, Theme
 
 
 def index(request):
