@@ -10,7 +10,7 @@
     <input type="text" maxlength="30">
     <select id='race' name="Раса">
       {% for race in races %}
-        <option>{{race}}</option>
+        <option value={{race.id}}>{{race.race_name}}</option>
       {% endfor %}
     </select>
     <select name="Тема">
@@ -47,9 +47,13 @@
   </div>
   <script>
     document.querySelector('select[id=race]').addEventListener('change', async function() {
+      let CSRF_TOKEN = '{{ csrf_token }}'
       let race = document.getElementById('race')
-      let race_name = race.value
-      let response = await fetch('http://127.0.0.1:8000/api/races_list/');
+      let race_id = race.value
+      let response = await fetch('http://127.0.0.1:8000/api/races_list/', {
+          method: 'POST',
+          body: race_id,
+          headers: {'Content-Type': 'application/json', 'X-CSRFToken': CSRF_TOKEN}});
       races = await response.json();
       console.log(races)
     });

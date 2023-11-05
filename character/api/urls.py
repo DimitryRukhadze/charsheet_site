@@ -1,8 +1,8 @@
 from django.urls import path
 
-from .views import races_list
+from .views import get_race_by_id
 
 
 urlpatterns = [
-    path('races_list/', races_list)
+    path('races_list/', get_race_by_id)
 ]
