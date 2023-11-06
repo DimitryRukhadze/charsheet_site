@@ -46,17 +46,16 @@
       <input type="number" value="10">
   </div>
   <script>
-    document.querySelector('select[id=race]').addEventListener('change', async function() {
-      let CSRF_TOKEN = '{{ csrf_token }}'
-      let race = document.getElementById('race')
-      let race_id = race.value
-      let response = await fetch('http://127.0.0.1:8000/api/races_list/', {
-          method: 'POST',
-          body: race_id,
-          headers: {'Content-Type': 'application/json', 'X-CSRFToken': CSRF_TOKEN}});
+    async function getRaceById() {
+      let race = document.getElementById('race');
+      let race_id = race.value;
+      race_url = `http://127.0.0.1:8000/api/race/${race_id}`;
+      let response = await fetch(race_url);
       races = await response.json();
-      console.log(races)
-    });
+      console.log(races);
+    };
+
+    document.querySelector('select[id=race]').addEventListener('change', getRaceById);
   </script>
 </body>
 </html>

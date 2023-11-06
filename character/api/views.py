@@ -11,12 +11,11 @@ class RaceSerializer(ModelSerializer):
         fields = "__all__"
 
 
-@api_view(['POST'])
-def get_race_by_id(request):
-    race_id = request.data
-    race = Race.objects.get(id=race_id)
+@api_view(['GET'])
+def get_race_by_id(request, id):
+    race = Race.objects.get(id=id)
     races_serializer = RaceSerializer(data=[race], many=True)
     races_serializer.is_valid()
-    response_data = races_serializer.data[0]
+    response_data = races_serializer.data
     print(response_data)
     return Response(response_data)
