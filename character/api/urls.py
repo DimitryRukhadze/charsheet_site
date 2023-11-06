@@ -4,5 +4,5 @@ from .views import get_race_by_id
 
 
 urlpatterns = [
-    path('race/<int:id>', get_race_by_id)
+    path('race/<int:race_id>', get_race_by_id)
 ]
